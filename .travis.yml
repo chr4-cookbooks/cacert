@@ -1,6 +1,6 @@
 rvm:
-  - 1.9.3
+  #- 1.9.3
   - 2.0.0
 script:
-  - bundle exec foodcritic -f any .
-  - bundle exec rubocop
+  - bundle exec kitchen test
+  #- bundle exec foodcritic -f any .
