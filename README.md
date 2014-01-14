@@ -40,7 +40,7 @@ The following example installs the cacert.org root certificate to /etc/ssl/certs
       cert     'cacert.org.pem'                        # name attribute
       source   'https://www.cacert.org/certs/root.crt' # required
       cert_dir '/etc/ssl/certs'                        # defaults to node['cacert']['cert_dir']
-      action :create                                   # default :create_if_missing
+      action   :create                                 # default :create
 
       # You can specify the hash for the symlink manually.
       # Ff not given, this will be generated using openssl x509 -hash
