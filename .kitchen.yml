@@ -45,4 +45,15 @@ suites:
 - name: default
   run_list:
   - recipe[minitest-handler]
+  - recipe[cacert::default]
+  attributes:
+    cacert:
+      certs:
+        cacert.org.pem:
+          source: 'https://www.cacert.org/certs/root.crt'
+          hash:   '99d0fa06'
+
+- name: cacert.org
+  run_list:
+  - recipe[minitest-handler]
   - recipe[cacert::cacert.org]
