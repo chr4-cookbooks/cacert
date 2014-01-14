@@ -18,18 +18,17 @@ The default recipe will install CA certificates defined in the `certs` attribute
 
 Eg.
 
-```
-"cacert": {
-   "certs": [
-      {
-         "my.ca.cert.org": {
-            "cert": "my.ca.cert.org",
-            "source": "https://my.ca.cert.org/certs/root.crt",
-            "cert_dir": "/etc/ssl/certs"
-            "hash": "492ffc07"
-         }
-      }
-   ]
+```json
+{
+	"cacert": {
+		"certs": {
+			"my.ca.cert.org": {
+				"source": "https://my.ca.cert.org/certs/root.crt",
+				"cert_dir": "/etc/ssl/certs",
+				"hash": "492ffc07"
+			}
+		}
+	}
 }
 ```
 
