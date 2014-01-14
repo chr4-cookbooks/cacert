@@ -20,15 +20,15 @@ Eg.
 
 ```json
 {
-	"cacert": {
-		"certs": {
-			"my.ca.cert.org": {
-				"source": "https://my.ca.cert.org/certs/root.crt",
-				"cert_dir": "/etc/ssl/certs",
-				"hash": "492ffc07"
-			}
-		}
-	}
+  "cacert": {
+    "certs": {
+      "my.ca.cert.org": {
+        "source": "https://my.ca.cert.org/certs/root.crt",
+        "cert_dir": "/etc/ssl/certs",
+        "hash": "492ffc07"
+      }
+    }
+  }
 }
 ```
 
