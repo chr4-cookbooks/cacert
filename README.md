@@ -90,6 +90,7 @@ e.g.
 
 # License and Authors
 
-Authors: Chris Aumann <me@chr4.org>
+Author: Chris Aumann <me@chr4.org>
+Contributors: François Lamboley <fload@me.com>
 
 License: GPLv3
