@@ -24,6 +24,6 @@ node['cacert']['certs'].each do |name, opts|
 		source   opts['source']        if opts['source']
 		cert_dir opts['cert_dir']      if opts['cert_dir']
 		hash     opts['hash']          if opts['hash']
-		action   (opts['action']? opts['action'].to_sym: :create)
+		action   opts['action']        if opts['action']
 	end
 end
