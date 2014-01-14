@@ -80,6 +80,7 @@ You can use the cacert_hash provider by its own, too
 # Contributing
 
 e.g.
+
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write you change
