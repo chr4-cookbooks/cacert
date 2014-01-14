@@ -18,14 +18,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-node['cacert']['certs'].each do |cacert|
-	cacert.each_pair do |id, opts|
-		Chef::Log.debug "Create cacerts #{id} from attribute"
-		cacert id do
-			action :create
-			unless opts == nil
-				opts.each {|k,v| self.__send__(k, v) if self.respond_to?(k) }
-			end
-		end
+node['cacert']['certs'].each_pair do |name, opts|
+	Chef::Log.debug "Creating cacerts #{name} from attributes"
+	cacert name do
+		source   opts['source']        if opts['source']
+		cert_dir opts['cert_dir']      if opts['cert_dir']
+		hash     opts['hash']          if opts['hash']
+		action   opts['action'].to_sym if opts['action']
 	end
 end
