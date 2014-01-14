@@ -19,3 +19,14 @@
 #
 
 default['cacert']['cert_dir'] = '/etc/ssl/certs'
+
+# Hash of cacerts to install with the default recipe. Example of use:
+# default['cacert']['certs'] = {
+#    "my.ca.cert.org" => {
+#       "source" => "https://my.ca.cert.org/certs/root.crt",
+#       "cert_dir" => "/etc/ssl/certs",
+#       "hash" => "492ffc07",
+#       "action" => "create"
+#    }
+# }
+default['cacert']['certs'] = {}
