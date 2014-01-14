@@ -18,7 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-node['cacert']['certs'].each_pair do |name, opts|
+node['cacert']['certs'].each do |name, opts|
 	Chef::Log.debug "Creating cacerts #{name} from attributes"
 	cacert name do
 		source   opts['source']        if opts['source']
