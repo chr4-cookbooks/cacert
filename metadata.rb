@@ -8,8 +8,8 @@ version          '0.1.0'
 recipe           'cacert::cacert.org', 'Installs cacert.org root certificate'
 
 attribute        'cacert/cert_dir',
-  :description => 'Installation directory for SSL certificates',
-  :default     => '/etc/ssl/certs'
+  description:   'Installation directory for SSL certificates',
+  default:       '/etc/ssl/certs'
 
 %w{ ubuntu debian redhat centos fedora amazon suse scientific }.each do |os|
   supports os
