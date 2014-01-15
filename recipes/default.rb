@@ -17,3 +17,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+
+node['cacert']['certs'].each do |name, opts|
+  Chef::Log.debug "Creating cacerts #{name} from attributes"
+  cacert name do
+    source   opts['source']        if opts['source']
+    cert_dir opts['cert_dir']      if opts['cert_dir']
+    hash     opts['hash']          if opts['hash']
+    action   opts['action']        if opts['action']
+  end
+end

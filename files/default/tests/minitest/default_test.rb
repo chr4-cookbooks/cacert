@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: cacert
-# Provider:: default
+# Test:: default
 #
-# Copyright 2012, Chris Aumann
+# Copyright 2014, Chris Aumann
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,24 +18,23 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-action :create do
-  r = directory "#{new_resource.cert_dir}" do
-    mode      00755
-    recursive true
-    not_if { ::File.exist? "#{new_resource.cert_dir}" }
-  end
-  new_resource.updated_by_last_action(true) if r.updated_by_last_action?
+require File.expand_path('../support/helpers', __FILE__)
 
-  r = remote_file "#{new_resource.cert_dir}/#{new_resource.cert}" do
-    mode   00644
-    source new_resource.source
-    action new_resource.action
-  end
-  new_resource.updated_by_last_action(true) if r.updated_by_last_action?
+describe 'cacert::default' do
+  include Helpers::Cacert
 
-  r = cacert_hash new_resource.cert do
-    cert_dir new_resource.cert_dir
-    hash     new_resource.hash
+  it 'must create ca certificate' do
+    file("#{node['cacert']['cert_dir']}/cacert.org.pem").must_exist
   end
-  new_resource.updated_by_last_action(true) if r.updated_by_last_action?
+
+  it 'must create correct symlink' do
+    link("#{node['cacert']['cert_dir']}/99d0fa06.0").must_exist.with(
+      :link_type, :symbolic).and(
+      :to, 'cacert.org.pem')
+  end
+
+  it 'must verify https://cacert.org' do
+    cmd = shell_out("openssl s_client -CApath #{node['cacert']['cert_dir']} -connect cacert.org:443")
+    cmd.stdout.must_include('Verify return code: 0 (ok)')
+  end
 end

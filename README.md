@@ -14,7 +14,23 @@ node['cacert']['cert_dir'] # defaults to '/etc/ssl/certs'
 
 ### default
 
-The default recipe does nothing.
+The default recipe will install CA certificates defined in the `certs` attributes of the node.
+
+Eg.
+
+```json
+{
+  "cacert": {
+    "certs": {
+      "my.ca.cert.org": {
+        "source": "https://my.ca.cert.org/certs/root.crt",
+        "cert_dir": "/etc/ssl/certs",
+        "hash": "492ffc07"
+      }
+    }
+  }
+}
+```
 
 ### cacert.org
 
@@ -64,6 +80,7 @@ You can use the cacert_hash provider by its own, too
 # Contributing
 
 e.g.
+
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write you change
@@ -73,6 +90,7 @@ e.g.
 
 # License and Authors
 
-Authors: Chris Aumann <me@chr4.org>
+Author: Chris Aumann <me@chr4.org>
+Contributors: François Lamboley <fload@me.com>
 
 License: GPLv3
