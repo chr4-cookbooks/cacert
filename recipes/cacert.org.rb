@@ -19,6 +19,7 @@
 #
 
 cacert 'cacert.org.pem' do
-  source 'https://www.cacert.org/certs/root.crt'
+  # Using chr4.org mirror, as cacert.org is down as of 2014-04-23
+  source 'http://chr4.org/cacert.org.pem'
   hash   '99d0fa06'
 end
