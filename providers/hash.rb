@@ -26,8 +26,7 @@ action :create do
 
   # If hash was provied, check whether the computed hash and the expected hash match
   if new_resource.hash && new_resource.hash != computed_hash
-    Chef::Log.warn("Hash #{computed_hash} of #{new_resource.cert} doesn't match expected hash #{new_resource.hash}")
-    return
+    Chef::Log.fatal("Hash #{computed_hash} of #{new_resource.cert} doesn't match expected hash #{new_resource.hash}")
   end
 
   r = link new_resource.cert do
