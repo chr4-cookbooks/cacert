@@ -27,9 +27,10 @@ action :create do
   new_resource.updated_by_last_action(true) if r.updated_by_last_action?
 
   r = remote_file "#{new_resource.cert_dir}/#{new_resource.cert}" do
-    mode   00644
-    source new_resource.source
-    action new_resource.action
+    mode     00644
+    source   new_resource.source
+    checksum new_resource.checksum
+    action   new_resource.action
   end
   new_resource.updated_by_last_action(true) if r.updated_by_last_action?
 

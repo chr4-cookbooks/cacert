@@ -20,12 +20,14 @@
 
 # Class 1 PKI key
 cacert 'cacert.org.pem' do
-  source 'http://www.cacert.org/certs/root.crt'
-  hash   '99d0fa06'
+  source   'http://www.cacert.org/certs/root.crt'
+  checksum 'c0e0773a79dceb622ef6410577c19c1e177fb2eb9c623a49340de3c9f1de2560'
+  hash     '99d0fa06'
 end
 
 # Class 3 PKI key
 cacert 'cacert.org.class3.pem' do
-  source 'http://www.cacert.org/certs/class3.crt'
-  hash   '590d426f'
+  source   'http://www.cacert.org/certs/class3.crt'
+  checksum 'f5badaa5da1cc05b110a9492455a2c2790d00c7175dcf3a7bcb5441af71bf84f'
+  hash     '590d426f'
 end

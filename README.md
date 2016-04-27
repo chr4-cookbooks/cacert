@@ -61,6 +61,10 @@ The following example installs the cacert.org root certificate to /etc/ssl/certs
       # You can specify the hash for the symlink manually.
       # Ff not given, this will be generated using openssl x509 -hash
       hash     '99d0fa06' # correct hash for cacerts root certificate
+
+      # Also, a sha256 checksum is supported.
+      # If the checksum doesn't match, the certificate won't be installed.
+      checksum 'c0e0773a79dceb622ef6410577c19c1e177fb2eb9c623a49340de3c9f1de2560'
     end
 
 ### cacert_hash
