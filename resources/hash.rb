@@ -21,6 +21,6 @@
 actions        :create
 default_action :create
 
-attribute :cert,     :kind_of => String, :name_attribute => true
-attribute :cert_dir, :kind_of => String, :default => '/etc/ssl/certs/'
-attribute :hash,     :kind_of => String, :default => nil
+attribute :cert,     kind_of: String, name_attribute: true
+attribute :cert_dir, kind_of: String, default: '/etc/ssl/certs/'
+attribute :hash,     kind_of: String, default: nil
