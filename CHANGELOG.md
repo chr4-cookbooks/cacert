@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of cacert.
 
+## 0.3.1:
+
+* Add support for checksums
+
 ## 0.3.0:
 
 * Check whether hashes match when it's provided
