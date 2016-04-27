@@ -23,14 +23,24 @@ require File.expand_path('../support/helpers', __FILE__)
 describe 'cacert::default' do
   include Helpers::Cacert
 
-  it 'must create ca certificate' do
+  it 'must create ca certificate (class 1)' do
     file("#{node['cacert']['cert_dir']}/cacert.org.pem").must_exist
   end
 
-  it 'must create correct symlink' do
+  it 'must create correct symlink (class 1)' do
     link("#{node['cacert']['cert_dir']}/99d0fa06.0").must_exist.with(
       :link_type, :symbolic).and(
       :to, 'cacert.org.pem')
+  end
+
+  it 'must create ca certificate (class 3)' do
+    file("#{node['cacert']['cert_dir']}/cacert.org.class3.pem").must_exist
+  end
+
+  it 'must create correct symlink (class 3)' do
+    link("#{node['cacert']['cert_dir']}/590d426f.0").must_exist.with(
+      :link_type, :symbolic).and(
+      :to, 'cacert.org.class3.pem')
   end
 
   it 'must verify https://cacert.org' do

@@ -36,6 +36,9 @@ suites:
         cacert.org.pem:
           source: 'https://www.cacert.org/certs/root.crt'
           hash:   '99d0fa06'
+        cacert.org.class3.pem:
+          source: 'http://www.cacert.org/certs/class3.crt'
+          hash:   '590d426f'
 
 - name: cacert.org
   run_list:
