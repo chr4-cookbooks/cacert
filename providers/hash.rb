@@ -19,19 +19,20 @@
 #
 
 action :create do
-  hash = new_resource.hash
+  # Generate hash using openssl
+  cmd = Mixlib::ShellOut.new("openssl x509 -hash -noout -in #{new_resource.cert_dir}/#{new_resource.cert}")
+  cmd.run_command
+  computed_hash = cmd.stdout.chomp if cmd.exitstatus
 
-  # if hash is not specified, generate it using openssl
-  unless hash
-    cmd = Mixlib::ShellOut.new("openssl x509 -hash -noout -in #{new_resource.cert_dir}/#{new_resource.cert}")
-    cmd.run_command
-    hash = cmd.stdout.chomp if cmd.exitstatus
+  # If hash was provied, check whether the computed hash and the expected hash match
+  if new_resource.hash && new_resource.hash != computed_hash
+    Chef::Log.warn("Hash #{computed_hash} of #{new_resource.cert} doesn't match expected hash #{new_resource.hash}")
+    return
   end
 
   r = link new_resource.cert do
-    target_file "#{new_resource.cert_dir}/#{hash}.0"
+    target_file "#{new_resource.cert_dir}/#{computed_hash}.0"
     to ::File.basename(new_resource.cert)
-    only_if { hash }
   end
 
   new_resource.updated_by_last_action(true) if r.updated_by_last_action?
