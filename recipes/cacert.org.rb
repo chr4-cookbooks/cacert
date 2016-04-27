@@ -18,7 +18,14 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+# Class 1 PKI key
 cacert 'cacert.org.pem' do
   source 'https://www.cacert.org/certs/root.crt'
   hash   '99d0fa06'
+end
+
+# Class 3 PKI key
+cacert 'cacert.org.class3.pem' do
+  source 'https://www.cacert.org/certs/class3.crt'
+  hash   '590d426f'
 end

@@ -6,7 +6,7 @@ description      'Installs/Configures cacert'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.2.0'
 recipe           'cacert::default',    'Installs certificates according to attributes'
-recipe           'cacert::cacert.org', 'Installs cacert.org root certificate'
+recipe           'cacert::cacert.org', 'Installs cacert.org root certificates (Class 1 and 3 PKI)'
 
 attribute        'cacert/cert_dir',
   description:   'Installation directory for SSL certificates',
