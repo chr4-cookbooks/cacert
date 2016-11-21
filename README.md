@@ -25,7 +25,7 @@ Eg.
       "my.ca.cert.org": {
         "source": "https://my.ca.cert.org/certs/root.crt",
         "cert_dir": "/etc/ssl/certs",
-        "hash": "492ffc07"
+        "cert_hash": "492ffc07"
       }
     }
   }
@@ -60,7 +60,7 @@ The following example installs the cacert.org root certificate to /etc/ssl/certs
 
       # You can specify the hash for the symlink manually.
       # Ff not given, this will be generated using openssl x509 -hash
-      hash     '99d0fa06' # correct hash for cacerts root certificate
+      cert_hash '99d0fa06' # correct hash for cacerts root certificate
 
       # Also, a sha256 checksum is supported.
       # If the checksum doesn't match, the certificate won't be installed.
@@ -77,7 +77,7 @@ You can use the cacert_hash provider by its own, too
 
       # You can specify the hash for the symlink manually.
       # Ff not given, this will be generated using openssl x509 -hash
-      hash     '99d0fa06' # correct hash for cacerts root certificate
+      cert_hash '99d0fa06' # correct hash for cacerts root certificate
     end
 
 

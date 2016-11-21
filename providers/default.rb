@@ -37,8 +37,8 @@ action :create do
   new_resource.updated_by_last_action(true) if r.updated_by_last_action?
 
   r = cacert_hash new_resource.cert do
-    cert_dir new_resource.cert_dir
-    hash     new_resource.hash
+    cert_dir  new_resource.cert_dir
+    cert_hash new_resource.cert_hash
   end
   new_resource.updated_by_last_action(true) if r.updated_by_last_action?
 end

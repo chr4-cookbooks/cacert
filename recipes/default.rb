@@ -21,10 +21,10 @@
 node['cacert']['certs'].each do |name, opts|
   Chef::Log.debug "Creating cacerts #{name} from attributes"
   cacert name do
-    source   opts['source']   if opts['source']
-    cert_dir opts['cert_dir'] if opts['cert_dir']
-    hash     opts['hash']     if opts['hash']
-    checksum opts['checksum'] if opts['checksum']
-    action   opts['action']   if opts['action']
+    source    opts['source']    if opts['source']
+    cert_dir  opts['cert_dir']  if opts['cert_dir']
+    cert_hash opts['cert_hash'] if opts['cert_hash']
+    checksum  opts['checksum']  if opts['checksum']
+    action    opts['action']    if opts['action']
   end
 end
