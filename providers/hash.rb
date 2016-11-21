@@ -18,6 +18,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+use_inline_resources
+
 action :create do
   # Generate hash using openssl
   cmd = Mixlib::ShellOut.new("openssl x509 -hash -noout -in #{new_resource.cert_dir}/#{new_resource.cert}")
