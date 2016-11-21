@@ -19,15 +19,15 @@
 #
 
 action :create do
-  r = directory "#{new_resource.cert_dir}" do
-    mode      00755
+  r = directory new_resource.cert_dir do
+    mode      0o755
     recursive true
-    not_if { ::File.exist? "#{new_resource.cert_dir}" }
+    not_if { ::File.exist?(new_resource.cert_dir) }
   end
   new_resource.updated_by_last_action(true) if r.updated_by_last_action?
 
   r = remote_file "#{new_resource.cert_dir}/#{new_resource.cert}" do
-    mode     00644
+    mode     0o644
     source   new_resource.source
     checksum new_resource.checksum
     action   new_resource.action

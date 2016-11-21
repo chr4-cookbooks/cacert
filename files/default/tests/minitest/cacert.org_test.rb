@@ -29,8 +29,7 @@ describe 'cacert::cacert.org' do
 
   it 'must create correct symlink (class 1)' do
     link("#{node['cacert']['cert_dir']}/99d0fa06.0").must_exist.with(
-      :link_type, :symbolic).and(
-      :to, 'cacert.org.pem')
+      :link_type, :symbolic).and(:to, 'cacert.org.pem')
   end
 
   it 'must create ca certificate (class 3)' do
@@ -39,8 +38,7 @@ describe 'cacert::cacert.org' do
 
   it 'must create correct symlink (class 3)' do
     link("#{node['cacert']['cert_dir']}/590d426f.0").must_exist.with(
-      :link_type, :symbolic).and(
-      :to, 'cacert.org.class3.pem')
+      :link_type, :symbolic).and(:to, 'cacert.org.class3.pem')
   end
 
   it 'must verify https://cacert.org' do
