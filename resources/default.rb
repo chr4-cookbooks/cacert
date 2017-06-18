@@ -26,4 +26,3 @@ attribute :source,    kind_of: String, required: true
 attribute :cert_dir,  kind_of: String, default: node['cacert']['cert_dir']
 attribute :checksum,  kind_of: String, default: nil
 attribute :cert_hash, kind_of: String, default: nil
-attribute :action,    kind_of: Symbol, default: :create
