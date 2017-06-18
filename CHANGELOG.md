@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of cacert.
 
+## 0.5.0:
+
+* Fix errors to ensure compatibility with Chef-13
+
 ## 0.4.0:
 
 * Rename the `hash` attribute to `cert_hash` (used by the `cacert` (default)
